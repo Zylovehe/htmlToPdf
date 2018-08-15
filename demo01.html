@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>heml2CanvasToPdf</title>
+  <style>
+    body {
+      padding: 0;
+      background-color: white;
+    }
+    header, section {
+      overflow: hidden;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+    }
+    li{
+      height:50px;
+      line-height: 50px;
+      flex: 1;
+      background: deepskyblue;
+      padding:0 10px;
+      border-left:3px solid #fff;
+      text-align: center;
+    }
+    img{
+      width:260px;
+    }
+    aside {
+      width: 20%;
+      float: left;
+      text-align: center;
+    }
+
+    aside a {
+      display: block;
+      height: 4em;
+      color: blue;
+    }
+
+    article {
+      padding: 2em 0;
+      width: 80%;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+      <li>four</li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <aside>
+    <h3>this is a title</h3>
+    <a href="">Stone Ginat</a>
+    <a href="">link2</a>
+    <a href="">link3</a>
+    <a href="">link4</a>
+    <a href="">link5</a>
+    <a href="">link6</a>
+  </aside>
+  <article>
+    <img src="./img/stone.jpg" alt="">
+    <h2>Stone Giant</h2>
+    <p>Coming..</p>
+    <p>
+      石头，一般指由大岩体遇外力而脱落下来的小型岩体，多依附于大岩体表面，一般成块状或椭圆形，外表有的粗糙，有的光滑，质地坚固、脆硬。可用来制造石器，采集石矿。在几千年前，我们的祖先就是用石头来生火。石头一般由碳酸钙和二氧化硅组成。
+      石之趣味，在于石头本身有着自己独特内涵。雅石是大自然散落的美，一方石头就构成了一种自然的山水，不同的个体有着不同的韵味：壁立当空、挺拔峻峭者谓之“瘦”，四面玲珑、上下相通者谓之“漏”，轻盈飘逸、晶莹通澈者谓之“透”，石纹起伏、凹凸
+      不平者谓之“皱”，色泽苍老、拙劣朴实者谓之“丑”。正如清人赵继恒在诗中所言：叠叠高峰映碧流，烟岚水色石中收，人能悟得其中趣，确胜寻山万里游。
+    </p>
+  </article>
+</section>
+<footer>写于2018 - 08 - 14</footer>
+<script type="text/javascript" src="./js/html2canvas.js"></script>
+<script type="text/javascript">
+  html2canvas(document.body,{
+    onrendered:function(canvas){
+      document.body.appendChild(canvas)
+    }
+  })
+</script>
+</body>
+</html>

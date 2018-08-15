@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>文字转pdf</title>
+</head>
+<body>
+<h1>jsPDF</h1>
+<p>我是p标签的内容</p>
+<script type="text/javascript" src="./js/jsPdf.debug.js"></script>
+<script>
+  var doc=new jsPDF();
+  //添加文本`Download PDF`
+  doc.text('Download jsPDF!',10,10);
+  doc.save('01.pdf');
+</script>
+</body>
+</html>

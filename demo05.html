@@ -1,0 +1,123 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>
+   文字和图片都换成pdf
+  </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+    header, section {
+      overflow: hidden;
+    }
+    ul {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      display: flex;
+    }
+    li {
+      display: block; /* i.e., suppress marker */
+      color: black;
+      height: 40px;
+      line-height: 40px;
+      flex: 1;
+      margin: 10px 0;
+      float: left;
+      background-color: deepskyblue;
+      text-align: center;
+      border-left: 3px solid #fff;
+    }
+
+    aside {
+      width: 20%;
+      float: left;
+      text-align: center;
+    }
+
+    aside a {
+      display: block;
+      height: 4em;
+      color: blue;
+    }
+
+    article {
+      padding: 1em 0;
+      width: 80%;
+      float: left;
+    }
+    article button{
+      background: aqua;
+      border: 2px solid #fff;
+      padding:10px;
+      cursor: pointer;
+      font-size:12px;
+    }
+    footer{
+      margin:20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li>我是one</li>
+      <li>我是two</li>
+      <li>我是three</li>
+      <li>我是four</li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <aside>
+    <h3>it is a title</h3>
+    <a href="">Stone Giant</a>
+    <a href="">link2</a>
+    <a href="">link3</a>
+    <a href="">link4</a>
+    <a href="">link5</a>
+    <a href="">link6</a>
+  </aside>
+  <article>
+    <img src="./img/bird.jpg">
+    <button onClick="btnClick()" title="点击下载">DOWNLOAD PDF</button>
+    <h2>bird</h2>
+    <p>
+      Coming to life as a chunk of bird,
+    </p>
+    <p>
+      鸟，又称作鸟儿。定义：体表被覆羽毛的卵生脊椎动物，鸟的主要特征是：身体呈流线型（纺锤型或梭形），大多数飞翔生活。体表被覆羽毛，一般前肢变成翼（有的种类翼退化）；胸肌发达；直肠短，食量大消化快，即消化系统发达，有助于减轻体重，利于飞行；心脏有两心房和两心室，心搏次数快。体温恒定。呼吸器官除具肺外，还具有多个气囊辅助呼吸，使得鸟类无论在吸气和呼气时，均有氧气通过肺，即双重呼吸。
+    </p>
+  </article>
+</section>
+<footer>write by linwalker @2017</footer>
+<script type="text/javascript" src="./js/html2canvas.js"></script>
+<script type="text/javascript" src="./js/jsPdf.debug.js"></script>
+<script type="text/javascript">
+  btnClick= function() {
+    html2canvas(document.body, {
+      onrendered:function(canvas) {
+
+        //返回图片URL，参数：图片格式和清晰度(0-1)
+        var pageData = canvas.toDataURL('image/jpeg', 1.0);
+
+        //方向默认竖直，尺寸ponits，格式a4【595.28,841.89]
+        var pdf = new jsPDF('', 'pt', 'a4');
+
+        //需要dataUrl格式
+        pdf.addImage(pageData, 'JPEG', 0, 0, 595.28, 592.28/canvas.width * canvas.height );
+
+        pdf.save('content.pdf');
+
+      }
+    })
+  }
+</script>
+</body>
+</html>
